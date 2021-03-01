@@ -1,0 +1,5 @@
+ALTER TABLE employees 
+	ADD team_id INT FOREIGN KEY REFERENCES teams(id) NOT NULL;
+
+ALTER TABLE employees 
+	ADD post_id INT FOREIGN KEY REFERENCES posts(id) NOT NULL;
