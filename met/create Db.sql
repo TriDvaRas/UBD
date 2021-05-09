@@ -1,0 +1,19 @@
+CREATE DATABASE edu1 CONTAINMENT = NONE ON PRIMARY (
+    NAME = N'edu1',
+    FILENAME = N'C:\edu1.mdf',
+    SIZE = 5120KB,
+    MAXSIZE = UNLIMITED,
+    FILEGROWTH = 1024KB
+) LOG ON (
+    NAME = N'edu1_log',
+    FILENAME = N'C:\edu1_log.ldf',
+    SIZE = 4672KB,
+    MAXSIZE = 2048GB,
+    FILEGROWTH = 10 %
+);
+ALTER DATABASE edu1
+    MODIFY FILE (NAME = edu1_log, MAXSIZE = 4096GB);
+ALTER DATABASE edu1
+    MODIFY NAME = edu2;
+
+DROP TABLE edu2;
